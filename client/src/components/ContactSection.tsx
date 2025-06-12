@@ -220,14 +220,14 @@ const ContactSection = () => {
                       <MessageCircle className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Instagram</h4>
+                      <h4 className="font-semibold mb-1">WhatsApp</h4>
                       <a 
-                        href="#"
+                        href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white/90 hover:text-white transition-colors"
                       >
-                        @roconsultoriaestrategica
+                        +55 (47) 9 9206-2877
                       </a>
                     </div>
                   </div>

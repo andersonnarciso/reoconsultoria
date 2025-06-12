@@ -1,109 +1,93 @@
-
 import nodemailer from 'nodemailer';
 
-interface EmailData {
+interface ContactData {
   name: string;
   email: string;
   phone: string;
   message: string;
 }
 
-export const sendContactEmail = async (data: EmailData) => {
-  // Configuração do transporter SMTP
-  const transporter = nodemailer.createTransporter({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com', // Substitua pelo seu servidor SMTP
+// Configuração do transporter SMTP
+function createSMTPTransporter() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: parseInt(process.env.SMTP_PORT || '587'),
     secure: false, // true para 465, false para outras portas
     auth: {
-      user: process.env.SMTP_USER || 'r.oconsultoriaestrategica@gmail.com', // seu e-mail
-      pass: process.env.SMTP_PASS || 'sua-senha-aqui', // sua senha ou app password
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
     tls: {
       rejectUnauthorized: false
     }
   });
+}
 
-  // Configuração do e-mail
+export async function sendContactEmail(data: ContactData) {
+  const transporter = createSMTPTransporter();
+
   const mailOptions = {
-    from: `"${data.name}" <${process.env.SMTP_USER || 'r.oconsultoriaestrategica@gmail.com'}>`,
-    to: process.env.CONTACT_EMAIL || 'r.oconsultoriaestrategica@gmail.com',
-    subject: `Novo contato do site - ${data.name}`,
+    from: process.env.SMTP_USER,
+    to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+    subject: `Nova mensagem de contato - ${data.name}`,
     html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-        <h2 style="color: #333; text-align: center; margin-bottom: 30px;">Novo Contato do Site</h2>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); color: white; padding: 30px; border-radius: 15px 15px 0 0; text-align: center;">
+          <h1 style="margin: 0; font-size: 28px; font-weight: bold;">R&O Consultoria Estratégica</h1>
+          <p style="margin: 10px 0 0 0; opacity: 0.9;">Nova Mensagem de Contato</p>
+        </div>
         
-        <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-          <h3 style="color: #555; margin-bottom: 15px;">Dados do Contato:</h3>
-          
-          <div style="margin-bottom: 10px;">
-            <strong style="color: #333;">Nome:</strong> ${data.name}
+        <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 15px 15px; border: 1px solid #e9ecef;">
+          <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c5530; margin: 0 0 20px 0; font-size: 20px; border-bottom: 2px solid #4a7c59; padding-bottom: 10px;">
+              📋 Informações do Cliente
+            </h2>
+            <div style="display: grid; gap: 15px;">
+              <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #4a7c59;">
+                <strong style="color: #2c5530;">Nome:</strong> <span style="color: #333;">${data.name}</span>
+              </div>
+              <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #4a7c59;">
+                <strong style="color: #2c5530;">Email:</strong> <span style="color: #333;">${data.email}</span>
+              </div>
+              <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #4a7c59;">
+                <strong style="color: #2c5530;">Telefone:</strong> <span style="color: #333;">${data.phone}</span>
+              </div>
+            </div>
           </div>
           
-          <div style="margin-bottom: 10px;">
-            <strong style="color: #333;">E-mail:</strong> ${data.email}
+          <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c5530; margin: 0 0 20px 0; font-size: 20px; border-bottom: 2px solid #4a7c59; padding-bottom: 10px;">
+              💬 Mensagem
+            </h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #4a7c59; line-height: 1.6; color: #333;">
+              ${data.message || 'Nenhuma mensagem adicional fornecida.'}
+            </div>
           </div>
           
-          <div style="margin-bottom: 10px;">
-            <strong style="color: #333;">Telefone:</strong> ${data.phone}
+          <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); border-radius: 10px; color: white;">
+            <h3 style="margin: 0 0 10px 0;">🎯 Próximos Passos</h3>
+            <p style="margin: 0; opacity: 0.9;">Entre em contato com este cliente o mais breve possível para agendar a análise gratuita da metodologia R&O 360.</p>
           </div>
         </div>
         
-        ${data.message ? `
-        <div style="background-color: #f0f8ff; padding: 20px; border-radius: 5px; border-left: 4px solid #007bff;">
-          <h3 style="color: #555; margin-bottom: 15px;">Mensagem:</h3>
-          <p style="color: #333; line-height: 1.6; margin: 0;">${data.message}</p>
-        </div>
-        ` : ''}
-        
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 12px;">
-          E-mail enviado automaticamente pelo formulário de contato do site R&O Consultoria Estratégica
+        <div style="text-align: center; margin-top: 20px; padding: 15px; color: #6c757d; font-size: 14px;">
+          <p style="margin: 0;">📧 Mensagem enviada através do formulário de contato do site</p>
+          <p style="margin: 5px 0 0 0;">🕐 ${new Date().toLocaleString('pt-BR')}</p>
         </div>
       </div>
     `,
-    text: `
-      Novo Contato do Site
-      
-      Nome: ${data.name}
-      E-mail: ${data.email}
-      Telefone: ${data.phone}
-      ${data.message ? `\nMensagem:\n${data.message}` : ''}
-      
-      ---
-      E-mail enviado automaticamente pelo formulário de contato do site R&O Consultoria Estratégica
-    `
   };
 
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('E-mail enviado com sucesso:', info.messageId);
-    return { success: true, messageId: info.messageId };
-  } catch (error) {
-    console.error('Erro ao enviar e-mail:', error);
-    throw new Error('Falha ao enviar e-mail');
-  }
-};
+  return await transporter.sendMail(mailOptions);
+}
 
-// Função para testar a conexão SMTP
-export const testSMTPConnection = async () => {
-  const transporter = nodemailer.createTransporter({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false,
-    auth: {
-      user: process.env.SMTP_USER || 'r.oconsultoriaestrategica@gmail.com',
-      pass: process.env.SMTP_PASS || 'sua-senha-aqui',
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
-
+export async function testSMTPConnection(): Promise<boolean> {
   try {
+    const transporter = createSMTPTransporter();
     await transporter.verify();
-    console.log('Conexão SMTP verificada com sucesso');
     return true;
   } catch (error) {
     console.error('Erro na conexão SMTP:', error);
     return false;
   }
-};
+}
