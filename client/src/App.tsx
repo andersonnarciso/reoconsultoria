@@ -13,9 +13,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <Router>
-        <Route path="/" component={Index} />
+        <Route path="/">
+          <Index />
+        </Route>
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route component={NotFound} />
+        <Route path="/:rest*">
+          <NotFound />
+        </Route>
       </Router>
     </TooltipProvider>
   </QueryClientProvider>
