@@ -14,17 +14,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 214 88% 14%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 0 0% 8%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 27 96% 61%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 120 55% 35%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -36,8 +36,8 @@
     --radius: 0.75rem;
 
     /* Custom brand colors */
-    --brand-navy: 214 88% 14%;
-    --brand-gold: 27 96% 61%;
+    --brand-black: 0 0% 8%;
+    --brand-rosemary: 120 55% 35%;
     --brand-slate: 215 16% 47%;
     --brand-light: 210 40% 96%;
   }

@@ -1,0 +1,39 @@
+Problemas identificados:
+Rodapé: Você gostou do layout horizontal no desktop, mas eu centralizei pensando que era para desktop também
+Seção de contato: Desalinhamento das caixas - precisa igualar alturas
+Falta de CTAs: Sem links diretos para WhatsApp ou e-mail
+Cores: Trocar o esquema atual (dourado/azul) pelas cores da logo (verde alecrim + preto)
+Plano de Correções Completas:
+
+1. Correção do Rodapé
+Voltar o rodapé para layout horizontal no desktop (como estava originalmente)
+Manter centralização apenas no mobile
+Usar grid horizontal com colunas lado a lado no desktop
+2. Alinhamento da Seção de Contato
+Reorganizar layout com grid system adequado
+Igualar alturas das caixas: "Informações de contato" + "Horário" = altura do formulário
+Caixa "Atendimento" com altura independente mas proporcional
+Aplicar h-full e flex flex-col para equalizar alturas
+3. Implementação da Nova Paleta de Cores
+Extrair cores da logo: verde alecrim + preto
+Substituir no sistema de design:
+Primary: preto da logo
+Accent: verde alecrim
+Atualizar todas as variáveis CSS no index.css
+Manter a "pegada" visual mas com tons da identidade da marca
+4. Adicionar CTAs de WhatsApp
+Botão flutuante do WhatsApp
+Links diretos nos cartões de contato
+CTA "Fale conosco no WhatsApp" estrategicamente posicionado
+Link mailto: funcional para e-mail
+5. Ajustes de Responsividade
+Garantir que todas as correções funcionem perfeitamente no mobile
+Testar breakpoints para evitar quebras
+Manter a usabilidade em todos os dispositivos
+6. Detalhes de UI/UX
+Corrigir qualquer inconsistência de espaçamento restante
+Ajustar proporções para visual mais harmonioso
+Aplicar as novas cores de forma consistente em toda a aplicação
+Sobre sua pergunta dos CTAs: Concordo 100%! Faltam pontos de conversão diretos. Um botão flutuante do WhatsApp e links mais diretos vão melhorar muito a conversão.
+
+A ideia das cores da logo é excelente também - vai dar uma identidade muito mais forte e coesa ao site. O verde alecrim é uma cor única e vai destacar a marca.

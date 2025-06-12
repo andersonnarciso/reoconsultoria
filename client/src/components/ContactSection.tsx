@@ -87,7 +87,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="order-2 lg:order-1">
-            <div className="bg-card rounded-3xl p-8 shadow-lg">
+            <div className="bg-card rounded-3xl p-8 shadow-lg h-full flex flex-col">
               <h3 className="font-display text-2xl font-bold text-primary mb-6 text-center">
                 Solicite sua análise gratuita
               </h3>
@@ -177,9 +177,9 @@ const ContactSection = () => {
 
           {/* Contact Information */}
           <div className="order-1 lg:order-2">
-            <div className="space-y-8">
+            <div className="space-y-8 h-full flex flex-col">
               {/* Contact Info */}
-              <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white">
+              <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white flex-grow">
                 <h3 className="font-display text-2xl font-bold mb-6 text-center">
                   Informações de contato
                 </h3>
