@@ -93,11 +93,11 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-16 md:py-20 lg:py-24;
   }
 
   .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
 
   .animate-fade-in-up {
@@ -111,6 +111,22 @@
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
   }
+
+  /* Standardized spacing system */
+  .spacing-xs { @apply p-2; }
+  .spacing-sm { @apply p-4; }
+  .spacing-md { @apply p-6; }
+  .spacing-lg { @apply p-8; }
+  .spacing-xl { @apply p-12; }
+  .spacing-2xl { @apply p-16; }
+
+  /* Consistent margins */
+  .margin-xs { @apply m-2; }
+  .margin-sm { @apply m-4; }
+  .margin-md { @apply m-6; }
+  .margin-lg { @apply m-8; }
+  .margin-xl { @apply m-12; }
+  .margin-2xl { @apply m-16; }
 }
 
 @keyframes fadeInUp {
@@ -155,4 +171,14 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Improved button styles */
+.btn-responsive {
+  @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
 }

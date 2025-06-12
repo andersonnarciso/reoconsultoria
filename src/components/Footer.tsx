@@ -23,95 +23,104 @@ const Footer = () => {
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="container-custom py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center space-y-12">
             {/* Company Info */}
-            <div className="lg:col-span-2">
-              <h3 className="font-display text-2xl font-bold mb-4">
-                R&O Consultoria Estratégica
-              </h3>
-              <p className="text-white/80 leading-relaxed mb-6 max-w-md">
-                Especialistas em transformar negócios de alimentos e bebidas através de nossa 
-                metodologia proprietária R&O 360. Resultados comprovados em 90 dias.
-              </p>
-              <div className="flex items-center gap-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center">
                   <span className="font-bold text-primary">R&O</span>
                 </div>
                 <div>
-                  <p className="font-semibold">Método R&O 360</p>
-                  <p className="text-sm text-white/70">Metodologia Proprietária</p>
+                  <h3 className="font-display text-2xl font-bold">
+                    R&O Consultoria Estratégica
+                  </h3>
+                  <p className="text-sm text-white/70">Metodologia proprietária</p>
                 </div>
               </div>
+              <p className="text-white/80 leading-relaxed max-w-2xl mx-auto">
+                Especialistas em transformar negócios de alimentos e bebidas através de nossa 
+                metodologia proprietária R&O 360. Resultados comprovados em 90 dias.
+              </p>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">Navegação</h4>
-              <ul className="space-y-3">
-                <li>
+            {/* Navigation and Services Grid */}
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              {/* Quick Links */}
+              <div>
+                <h4 className="font-semibold text-lg mb-6">Navegação</h4>
+                <div className="space-y-3">
                   <button 
                     onClick={() => scrollToSection('hero')}
-                    className="text-white/80 hover:text-white transition-colors"
+                    className="block text-white/80 hover:text-white transition-colors"
                   >
                     Início
                   </button>
-                </li>
-                <li>
                   <button 
                     onClick={() => scrollToSection('quem-somos')}
-                    className="text-white/80 hover:text-white transition-colors"
+                    className="block text-white/80 hover:text-white transition-colors"
                   >
-                    Quem Somos
+                    Quem somos
                   </button>
-                </li>
-                <li>
                   <button 
                     onClick={() => scrollToSection('metodo')}
-                    className="text-white/80 hover:text-white transition-colors"
+                    className="block text-white/80 hover:text-white transition-colors"
                   >
                     Método R&O 360
                   </button>
-                </li>
-                <li>
                   <button 
                     onClick={() => scrollToSection('contato')}
-                    className="text-white/80 hover:text-white transition-colors"
+                    className="block text-white/80 hover:text-white transition-colors"
                   >
                     Contato
                   </button>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </div>
 
-            {/* Services */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">Nossos Serviços</h4>
-              <ul className="space-y-3 text-white/80">
-                <li>Diagnóstico Operacional</li>
-                <li>Análise de Processos</li>
-                <li>Otimização de Estoque</li>
-                <li>Consultoria Estratégica</li>
-                <li>Relatórios Detalhados</li>
-              </ul>
+              {/* Services */}
+              <div>
+                <h4 className="font-semibold text-lg mb-6">Nossos serviços</h4>
+                <div className="space-y-3 text-white/80">
+                  <p>Diagnóstico operacional</p>
+                  <p>Análise de processos</p>
+                  <p>Otimização de estoque</p>
+                  <p>Consultoria estratégica</p>
+                  <p>Relatórios detalhados</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-white/20">
-          <div className="container-custom py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="container-custom py-8">
+            <div className="flex flex-col items-center gap-6 text-center">
               <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/70">
                 <p>© {currentYear} R&O Consultoria Estratégica. Todos os direitos reservados.</p>
                 <div className="flex gap-4">
                   <button className="hover:text-white transition-colors">
-                    Política de Privacidade
+                    Política de privacidade
                   </button>
-                  <span>|</span>
+                  <span className="hidden md:inline">|</span>
                   <button className="hover:text-white transition-colors">
-                    Termos de Uso
+                    Termos de uso
                   </button>
                 </div>
+              </div>
+
+              {/* Developer Credits */}
+              <div className="text-xs text-white/60">
+                <p>
+                  Desenvolvido por{' '}
+                  <a 
+                    href="https://andersonnarciso.dev.br" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent/80 transition-colors font-medium"
+                  >
+                    Anderson Narciso
+                  </a>
+                </p>
               </div>
 
               {/* Back to Top Button */}

@@ -45,32 +45,32 @@ const ContactSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-accent/10 rounded-full px-4 py-2 mb-6">
             <MessageCircle className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Entre em Contato</span>
+            <span className="text-sm font-medium text-accent">Entre em contato</span>
           </div>
           
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-6">
-            Pronto para Transformar Seu Negócio?
+            Pronto para transformar seu negócio?
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Entre em contato conosco hoje mesmo e descubra como o 
-            <span className="font-semibold text-primary"> Método R&O 360</span> pode 
+            <span className="font-semibold text-primary"> método R&O 360</span> pode 
             impulsionar seus resultados.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="order-2 lg:order-1">
             <div className="bg-card rounded-3xl p-8 shadow-lg">
-              <h3 className="font-display text-2xl font-bold text-primary mb-6">
-                Solicite Sua Análise Gratuita
+              <h3 className="font-display text-2xl font-bold text-primary mb-6 text-center">
+                Solicite sua análise gratuita
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
-                    Nome Completo *
+                    Nome completo *
                   </label>
                   <Input
                     id="name"
@@ -141,7 +141,7 @@ const ContactSection = () => {
                     "Enviando..."
                   ) : (
                     <>
-                      Enviar Mensagem
+                      Enviar mensagem
                       <Send className="ml-2 w-5 h-5" />
                     </>
                   )}
@@ -155,8 +155,8 @@ const ContactSection = () => {
             <div className="space-y-8">
               {/* Contact Info */}
               <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white">
-                <h3 className="font-display text-2xl font-bold mb-6">
-                  Informações de Contato
+                <h3 className="font-display text-2xl font-bold mb-6 text-center">
+                  Informações de contato
                 </h3>
                 
                 <div className="space-y-6">
@@ -211,13 +211,13 @@ const ContactSection = () => {
 
               {/* Business Hours */}
               <div className="bg-card rounded-3xl p-8 shadow-lg">
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <Clock className="w-6 h-6 text-accent" />
                   <h3 className="font-display text-xl font-bold text-primary">
-                    Horário de Atendimento
+                    Horário de atendimento
                   </h3>
                 </div>
-                <div className="space-y-2 text-muted-foreground">
+                <div className="space-y-2 text-muted-foreground text-center">
                   <p><span className="font-medium">Segunda - Sexta:</span> 08:00 - 18:00</p>
                   <p><span className="font-medium">Sábado:</span> 08:00 - 12:00</p>
                   <p><span className="font-medium">Domingo:</span> Fechado</p>
@@ -226,13 +226,13 @@ const ContactSection = () => {
 
               {/* Location */}
               <div className="bg-card rounded-3xl p-8 shadow-lg">
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <MapPin className="w-6 h-6 text-accent" />
                   <h3 className="font-display text-xl font-bold text-primary">
                     Atendimento
                   </h3>
                 </div>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-center">
                   Atendemos todo o Brasil através de consultoria presencial e remota, 
                   adaptando nossa metodologia às necessidades de cada cliente.
                 </p>

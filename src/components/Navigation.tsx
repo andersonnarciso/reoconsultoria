@@ -24,7 +24,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Início", sectionId: "hero" },
-    { label: "Quem Somos", sectionId: "quem-somos" },
+    { label: "Quem somos", sectionId: "quem-somos" },
     { label: "Método R&O 360", sectionId: "metodo" },
     { label: "Contato", sectionId: "contato" }
   ];
@@ -86,7 +86,7 @@ const Navigation = () => {
                   : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
               }`}
             >
-              Análise Gratuita
+              Análise gratuita
               <ArrowRight className="w-4 h-4" />
             </Button>
 
@@ -108,21 +108,21 @@ const Navigation = () => {
         <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="pb-4 pt-2 space-y-4 bg-white/95 backdrop-blur-lg rounded-2xl mt-2 p-6 shadow-xl">
+          <div className="pb-6 pt-4 space-y-4 bg-white/95 backdrop-blur-lg rounded-2xl mt-4 p-6 shadow-xl">
             {navItems.map((item) => (
               <button
                 key={item.sectionId}
                 onClick={() => scrollToSection(item.sectionId)}
-                className="block w-full text-left text-primary font-medium py-2 hover:text-accent transition-colors"
+                className="block w-full text-left text-primary font-medium py-3 hover:text-accent transition-colors"
               >
                 {item.label}
               </button>
             ))}
             <Button
               onClick={() => scrollToSection('contato')}
-              className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold py-3 rounded-full mt-4"
+              className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold py-3 rounded-full mt-6"
             >
-              Solicitar Análise Gratuita
+              Solicitar análise gratuita
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>

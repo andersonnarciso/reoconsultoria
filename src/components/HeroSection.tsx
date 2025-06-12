@@ -27,7 +27,7 @@ const HeroSection = () => {
       <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-accent rounded-full animate-pulse delay-500 opacity-50"></div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom text-center text-white">
+      <div className="relative z-10 container-custom text-center text-white pb-32">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 animate-fade-in">
           <Award className="w-4 h-4 text-accent" />
@@ -76,29 +76,29 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
           <Button 
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="bg-accent hover:bg-accent/90 text-primary font-semibold px-6 py-3 text-base rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl"
             onClick={() => scrollToSection('contato')}
           >
-            Agende Sua Análise Gratuita
-            <ArrowRight className="ml-2 w-5 h-5" />
+            Agende sua análise gratuita
+            <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
           
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-4 text-lg rounded-full transition-all duration-300"
+            className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-6 py-3 text-base rounded-full transition-all duration-300"
             onClick={() => scrollToSection('metodo')}
           >
-            <Play className="mr-2 w-5 h-5" />
-            Conheça o Método R&O 360
+            <Play className="mr-2 w-4 h-4" />
+            Conheça o método R&O 360
           </Button>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-          </div>
+      {/* Scroll Indicator - Positioned to not overlap with buttons */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

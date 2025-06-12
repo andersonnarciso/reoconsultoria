@@ -13,7 +13,7 @@ const AboutSection = () => {
           </div>
           
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-6">
-            Quem Somos: Sua Parceria Estratégica no Setor de A&B
+            Quem somos: sua parceria estratégica no setor de A&B
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -43,9 +43,9 @@ const AboutSection = () => {
           {/* Rodrigo Rafaeli */}
           <div className="group">
             <div className="bg-card rounded-3xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full text-center">
                 {/* Profile Header */}
-                <div className="text-center mb-6">
+                <div className="mb-6">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white font-bold text-2xl">RR</span>
                   </div>
@@ -57,13 +57,13 @@ const AboutSection = () => {
                 </div>
 
                 {/* Description */}
-                <div className="flex-1">
-                  <p className="text-muted-foreground leading-relaxed">
+                <div className="flex-1 text-center">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     Com formação em <span className="font-semibold text-primary">Gastronomia e MBA em Gestão de Negócios</span>, 
                     Rodrigo integra uma visão prática e profunda de processos. Sua expertise abrange a estruturação e 
                     organização de setores, da padronização operacional à reestruturação de processos internos.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mt-4">
+                  <p className="text-muted-foreground leading-relaxed">
                     Como <span className="font-semibold text-accent">catalisador de resultados</span>, é especializado em 
                     análise de dados para encontrar oportunidades de melhoria, validando sua capacidade de gerar resultados 
                     sustentáveis com vivência como proprietário de restaurante e chefe operacional de eventos gastronômicos.
@@ -71,7 +71,7 @@ const AboutSection = () => {
                 </div>
 
                 {/* Skills */}
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap justify-center gap-2">
                   <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Processos Operacionais</span>
                   <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Análise de Dados</span>
                   <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Padronização</span>
@@ -83,9 +83,9 @@ const AboutSection = () => {
           {/* Otavio de Brito */}
           <div className="group">
             <div className="bg-card rounded-3xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full text-center">
                 {/* Profile Header */}
-                <div className="text-center mb-6">
+                <div className="mb-6">
                   <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white font-bold text-2xl">OB</span>
                   </div>
@@ -97,13 +97,13 @@ const AboutSection = () => {
                 </div>
 
                 {/* Description */}
-                <div className="flex-1">
-                  <p className="text-muted-foreground leading-relaxed">
+                <div className="flex-1 text-center">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     Empresário com mais de <span className="font-semibold text-primary">20 anos de experiência</span> em 
                     gestão de Alimentos e Bebidas. Otavio foi professor universitário por 7 anos e Chef Executivo em 
                     grandes redes como <span className="font-semibold text-accent">Hard Rock Café Brasil e Mercure Hotéis</span>.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mt-4">
+                  <p className="text-muted-foreground leading-relaxed">
                     Desenvolveu campanhas para marcas renomadas como Eletrolux, Frimesa e Madalosso. Atualmente, atua como 
                     <span className="font-semibold text-accent"> analista de dados e desenvolvedor de oportunidades</span>, 
                     trazendo uma perspectiva única e abrangente para cada desafio.
@@ -111,7 +111,7 @@ const AboutSection = () => {
                 </div>
 
                 {/* Skills */}
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap justify-center gap-2">
                   <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Gestão A&B</span>
                   <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Chef Executivo</span>
                   <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Análise Estratégica</span>
