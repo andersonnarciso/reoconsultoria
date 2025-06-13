@@ -1,3 +1,4 @@
+
 import nodemailer from 'nodemailer';
 
 interface ContactData {
@@ -9,13 +10,13 @@ interface ContactData {
 
 // Configuração do transporter SMTP
 function createSMTPTransporter() {
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false, // true para 465, false para outras portas
+  return nodemailer.createTransporter({
+    host: 'mail.reoconsultoria.com.br',
+    port: 465,
+    secure: true, // true para 465, false para outras portas
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: 'smtp@reoconsultoria.com.br',
+      pass: process.env.SMTP_PASS, // A senha deve ser definida como variável de ambiente
     },
     tls: {
       rejectUnauthorized: false
@@ -27,8 +28,8 @@ export async function sendContactEmail(data: ContactData) {
   const transporter = createSMTPTransporter();
 
   const mailOptions = {
-    from: process.env.SMTP_USER,
-    to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+    from: 'smtp@reoconsultoria.com.br',
+    to: 'r.oconsultoriaestrategica@gmail.com',
     subject: `Nova mensagem de contato - ${data.name}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

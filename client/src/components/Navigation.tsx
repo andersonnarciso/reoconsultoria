@@ -22,9 +22,17 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleCTAClick = () => {
+    const phoneNumber = "5547992062877";
+    const message = "Olá! Gostaria de solicitar minha análise gratuita do método R&O 360.";
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const navItems = [
     { label: "Início", sectionId: "hero" },
     { label: "Quem somos", sectionId: "quem-somos" },
+    { label: "Nossos serviços", sectionId: "servicos" },
     { label: "Método R&O 360", sectionId: "metodo" },
     { label: "Contato", sectionId: "contato" }
   ];
@@ -79,10 +87,10 @@ const Navigation = () => {
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center gap-4">
             <Button
-              onClick={() => scrollToSection('contato')}
+              onClick={handleCTAClick}
               className={`hidden sm:flex items-center gap-2 font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
                 isScrolled
-                  ? 'bg-accent hover:bg-accent/90 text-primary'
+                  ? 'bg-accent hover:bg-accent/90 text-white'
                   : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
               }`}
             >
@@ -119,8 +127,8 @@ const Navigation = () => {
               </button>
             ))}
             <Button
-              onClick={() => scrollToSection('contato')}
-              className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold py-3 rounded-full mt-6"
+              onClick={handleCTAClick}
+              className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 rounded-full mt-6"
             >
               Solicitar análise gratuita
               <ArrowRight className="ml-2 w-4 h-4" />

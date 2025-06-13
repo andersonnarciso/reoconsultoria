@@ -32,11 +32,8 @@ const ContactSection = () => {
       const result = await response.json();
 
       if (result.success) {
-        toast({
-          title: "Mensagem enviada com sucesso!",
-          description: "Entraremos em contato em breve para agendar sua análise gratuita.",
-        });
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        // Redirect to thank you page
+        window.location.href = '/obrigado';
       } else {
         toast({
           title: "Erro ao enviar mensagem",
@@ -64,7 +61,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="section-padding bg-gradient-to-br from-primary/10 via-background to-accent/10">
+    <section id="contato" className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -84,10 +81,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="order-2 lg:order-1">
-            <div className="bg-card rounded-3xl p-8 shadow-lg h-full flex flex-col">
+            <div className="bg-card rounded-3xl p-8 shadow-lg h-full">
               <h3 className="font-display text-2xl font-bold text-primary mb-6 text-center">
                 Solicite sua análise gratuita
               </h3>
@@ -175,94 +172,118 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Information - Aligned Heights */}
           <div className="order-1 lg:order-2">
-            <div className="space-y-8 h-full flex flex-col">
-              {/* Contact Info */}
-              <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white flex-grow">
-                <h3 className="font-display text-2xl font-bold mb-6 text-center">
-                  Informações de contato
-                </h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6" />
+            <div className="grid grid-rows-2 gap-6 h-full">
+              {/* Top Row: Contact Info + Business Hours */}
+              <div className="grid grid-cols-1 gap-6">
+                <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white">
+                  <h3 className="font-display text-2xl font-bold mb-6 text-center">
+                    Informações de contato
+                  </h3>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <Mail className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">E-mail</h4>
+                        <a 
+                          href="mailto:r.oconsultoriaestrategica@gmail.com"
+                          className="text-white/90 hover:text-white transition-colors"
+                        >
+                          r.oconsultoriaestrategica@gmail.com
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">E-mail</h4>
-                      <a 
-                        href="mailto:r.oconsultoriaestrategica@gmail.com"
-                        className="text-white/90 hover:text-white transition-colors"
-                      >
-                        r.oconsultoriaestrategica@gmail.com
-                      </a>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <Phone className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">Telefone</h4>
+                        <a 
+                          href="tel:+5547992062877"
+                          className="text-white/90 hover:text-white transition-colors"
+                        >
+                          +55 (47) 9 9206-2877
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Telefone</h4>
-                      <a 
-                        href="tel:+5547992062877"
-                        className="text-white/90 hover:text-white transition-colors"
-                      >
-                        +55 (47) 9 9206-2877
-                      </a>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">WhatsApp</h4>
-                      <a 
-                        href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/90 hover:text-white transition-colors"
-                      >
-                        +55 (47) 9 9206-2877
-                      </a>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">WhatsApp</h4>
+                        <a 
+                          href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/90 hover:text-white transition-colors"
+                        >
+                          +55 (47) 9 9206-2877
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="bg-card rounded-3xl p-8 shadow-lg">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <Clock className="w-6 h-6 text-accent" />
-                  <h3 className="font-display text-xl font-bold text-primary">
-                    Horário de atendimento
-                  </h3>
+              {/* Bottom Row: Business Hours + Location */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-card rounded-3xl p-6 shadow-lg">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <Clock className="w-6 h-6 text-accent" />
+                    <h3 className="font-display text-lg font-bold text-primary">
+                      Horário de atendimento
+                    </h3>
+                  </div>
+                  <div className="space-y-2 text-muted-foreground text-center">
+                    <p><span className="font-medium">Segunda - Sexta:</span> 08:00 - 18:00</p>
+                    <p><span className="font-medium">Sábado:</span> 08:00 - 12:00</p>
+                    <p><span className="font-medium">Domingo:</span> Fechado</p>
+                  </div>
                 </div>
-                <div className="space-y-2 text-muted-foreground text-center">
-                  <p><span className="font-medium">Segunda - Sexta:</span> 08:00 - 18:00</p>
-                  <p><span className="font-medium">Sábado:</span> 08:00 - 12:00</p>
-                  <p><span className="font-medium">Domingo:</span> Fechado</p>
-                </div>
-              </div>
 
-              {/* Location */}
-              <div className="bg-card rounded-3xl p-8 shadow-lg">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <MapPin className="w-6 h-6 text-accent" />
-                  <h3 className="font-display text-xl font-bold text-primary">
-                    Atendimento
-                  </h3>
+                <div className="bg-card rounded-3xl p-6 shadow-lg">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <MapPin className="w-6 h-6 text-accent" />
+                    <h3 className="font-display text-lg font-bold text-primary">
+                      Atendimento
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground text-center">
+                    Atendemos todo o Brasil através de consultoria presencial e remota, 
+                    adaptando nossa metodologia às necessidades de cada cliente.
+                  </p>
                 </div>
-                <p className="text-muted-foreground text-center">
-                  Atendemos todo o Brasil através de consultoria presencial e remota, 
-                  adaptando nossa metodologia às necessidades de cada cliente.
-                </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* WhatsApp CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-accent/10 rounded-3xl p-8 max-w-2xl mx-auto border-2 border-accent/20">
+            <h3 className="font-display text-2xl font-bold text-primary mb-4">
+              Prefere conversar diretamente?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Fale conosco agora mesmo pelo WhatsApp e tire todas suas dúvidas
+            </p>
+            <a
+              href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full hover:bg-accent/90 transition-all duration-300 transform hover:scale-105"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Conversar no WhatsApp
+            </a>
           </div>
         </div>
       </div>
