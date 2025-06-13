@@ -10,7 +10,7 @@ interface ContactData {
 
 // Configuração do transporter SMTP
 function createSMTPTransporter() {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: 'mail.reoconsultoria.com.br',
     port: 465,
     secure: true, // true para 465, false para outras portas
