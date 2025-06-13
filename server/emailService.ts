@@ -1,5 +1,5 @@
-
 import nodemailer from 'nodemailer';
+import 'dotenv/config'; // Carrega as variáveis de ambiente do .env
 
 interface ContactData {
   name: string;
@@ -11,16 +11,16 @@ interface ContactData {
 // Configuração do transporter SMTP
 function createSMTPTransporter() {
   return nodemailer.createTransport({
-    host: 'mail.reoconsultoria.com.br',
-    port: 465,
-    secure: true, // true para 465, false para outras portas
+    host: process.env.SMTP_HOST || 'mail.reoconsultoria.com.br',
+    port: parseInt(process.env.SMTP_PORT || '587', 10),
+    secure: false, // false para porta 587 (TLS)
     auth: {
-      user: 'smtp@reoconsultoria.com.br',
-      pass: process.env.SMTP_PASS, // A senha deve ser definida como variável de ambiente
+      user: process.env.SMTP_USER || 'smtp@reoconsultoria.com.br',
+      pass: process.env.SMTP_PASS || '', // Senha do .env
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false, // Pode ser removido se o certificado for confiável
+    },
   });
 }
 
@@ -28,13 +28,13 @@ export async function sendContactEmail(data: ContactData) {
   const transporter = createSMTPTransporter();
 
   const mailOptions = {
-    from: 'smtp@reoconsultoria.com.br',
-    to: 'r.oconsultoriaestrategica@gmail.com',
-    subject: `Nova mensagem de contato - ${data.name}`,
+    from: process.env.SMTP_USER || 'smtp@reoconsultoria.com.br',
+    to: process.env.CONTACT_EMAIL || 'r.oconsultoriaestrategica@gmail.com',
+    subject: `Nova mensagem de contato - ${data.name} | ${process.env.COMPANY_NAME || 'R&O Consultoria Estratégica'}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); color: white; padding: 30px; border-radius: 15px 15px 0 0; text-align: center;">
-          <h1 style="margin: 0; font-size: 28px; font-weight: bold;">R&O Consultoria Estratégica</h1>
+          <h1 style="margin: 0; font-size: 28px; font-weight: bold;">${process.env.COMPANY_NAME || 'R&O Consultoria Estratégica'}</h1>
           <p style="margin: 10px 0 0 0; opacity: 0.9;">Nova Mensagem de Contato</p>
         </div>
         
@@ -68,6 +68,7 @@ export async function sendContactEmail(data: ContactData) {
           <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); border-radius: 10px; color: white;">
             <h3 style="margin: 0 0 10px 0;">🎯 Próximos Passos</h3>
             <p style="margin: 0; opacity: 0.9;">Entre em contato com este cliente o mais breve possível para agendar a análise gratuita da metodologia R&O 360.</p>
+            <p style="margin-top: 10px;"><a href="${process.env.SITE_URL || 'https://reoconsultoria.com.br'}" style="color: #fff; text-decoration: underline;">Visite nosso site</a></p>
           </div>
         </div>
         

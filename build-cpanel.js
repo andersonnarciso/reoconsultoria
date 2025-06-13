@@ -1,6 +1,3 @@
-
-#!/usr/bin/env node
-
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -19,7 +16,7 @@ try {
 
   // 2. Build do cliente (frontend)
   console.log('🎨 Fazendo build do frontend...');
-  execSync('npm run build', { stdio: 'inherit' });
+  execSync('npm run build', { stdio: 'inherit', cwd: 'client' });
 
   // 3. Criar arquivo de inicialização para cPanel
   console.log('📝 Criando arquivo de inicialização...');
@@ -62,15 +59,15 @@ Header always set X-XSS-Protection "1; mode=block"
   const prodPackageJson = {
     name: packageJson.name,
     version: packageJson.version,
-    type: "module",
-    main: "app.js",
+    type: 'module',
+    main: 'app.js',
     scripts: {
-      start: "node app.js"
+      start: 'node app.js',
     },
     dependencies: {
-      express: packageJson.dependencies.express,
-      nodemailer: packageJson.dependencies.nodemailer,
-    }
+      express: packageJson.dependencies?.express,
+      nodemailer: packageJson.dependencies?.nodemailer,
+    },
   };
 
   fs.writeFileSync('dist/package.json', JSON.stringify(prodPackageJson, null, 2));
@@ -78,7 +75,7 @@ Header always set X-XSS-Protection "1; mode=block"
   // 6. Copiar arquivos necessários
   console.log('📋 Copiando arquivos necessários...');
   fs.copyFileSync('app.js', 'dist/app.js');
-  
+
   if (fs.existsSync('.env')) {
     fs.copyFileSync('.env', 'dist/.env');
   }
@@ -91,9 +88,7 @@ Header always set X-XSS-Protection "1; mode=block"
   console.log('2. Configure as variáveis de ambiente no cPanel');
   console.log('3. Configure o Node.js app no cPanel apontando para app.js');
   console.log('4. Configure as credenciais SMTP');
-
 } catch (error) {
   console.error('❌ Erro durante o build:', error.message);
   process.exit(1);
 }
-`;
