@@ -9,7 +9,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100vh] w-full bg-cover bg-center flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -27,7 +27,7 @@ const HeroSection = () => {
       <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-accent rounded-full animate-pulse delay-500 opacity-50"></div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom text-center text-white pb-32">
+      <div className="relative z-10 container-custom text-center text-white">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 animate-fade-in">
           <Award className="w-4 h-4 text-accent" />
@@ -37,13 +37,13 @@ const HeroSection = () => {
         {/* Main Headline */}
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">
           <span className="block">DIAGNÓSTICO ANALÍTICO</span>
-          <span className="block text-accent">DE OPERAÇÃO EM 90 DIAS</span>
+          <span className="block text-accent text-lime-500">DE OPERAÇÃO EM 90 DIAS</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto mb-8 animate-fade-in-up opacity-90">
           Especialistas em A&B que desvendam o potencial máximo da sua operação, 
-          entregando <span className="font-semibold text-accent">clareza e ferramentas</span> para 
+          entregando <span className="font-semibold text-accent text-lime-500">clareza e ferramentas</span> para 
           decisões inteligentes e crescimento sustentável.
         </p>
 
@@ -51,21 +51,21 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-8 mb-12 animate-fade-in">
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-accent" />
+              <TrendingUp className="w-5 h-5 text-accent text-lime-500" />
               <span className="text-2xl font-bold">90</span>
             </div>
             <p className="text-sm opacity-80">Dias para Resultados</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <Target className="w-5 h-5 text-accent" />
+              <Target className="w-5 h-5 text-accent text-lime-500" />
               <span className="text-2xl font-bold">360°</span>
             </div>
             <p className="text-sm opacity-80">Análise Completa</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <Award className="w-5 h-5 text-accent" />
+              <Award className="w-5 h-5 text-accent text-lime-500" />
               <span className="text-2xl font-bold">100%</span>
             </div>
             <p className="text-sm opacity-80">Metodologia Própria</p>
@@ -76,7 +76,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
           <Button 
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-primary font-semibold px-6 py-3 text-base rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="bg-accent hover:bg-accent/90 text-primary text-lime-500 font-semibold px-6 py-3 text-base rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl"
             onClick={() => scrollToSection('contato')}
           >
             Agende sua análise gratuita

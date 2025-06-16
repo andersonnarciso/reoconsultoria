@@ -1,10 +1,65 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MessageCircle, Send, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MessageCircle, MapPin, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+const contactInfoList = [
+  {
+    icon: <Mail className="w-7 h-7" />,
+    label: "E-mail",
+    value: (
+      <a href="mailto:comercial@reoconsultoria.com.br" className="hover:underline">
+        comercial@reoconsultoria.com.br
+      </a>
+    ),
+  },
+  {
+    icon: <Phone className="w-7 h-7" />,
+    label: "Telefone",
+    value: (
+      <a href="tel:+5547992062877" className="hover:underline">
+        +55 (47) 9 9206-2877
+      </a>
+    ),
+  },
+  {
+    icon: <MessageCircle className="w-7 h-7" />,
+    label: "WhatsApp",
+    value: (
+      <a
+        href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        +55 (47) 9 9206-2877
+      </a>
+    ),
+  },
+  {
+    icon: <Clock className="w-7 h-7" />,
+    label: "Horários",
+    value: (
+      <div>
+        <div>Seg. - Sex: 08:00 - 18:00</div>
+        <div>Sábado: 08:00 - 12:00</div>
+        <div>Domingo: Fechado</div>
+      </div>
+    ),
+  },
+  {
+    icon: <MapPin className="w-7 h-7" />,
+    label: "Atendimento",
+    value: (
+      <div>
+        Atendemos todo o Brasil.<br />
+        Consultoria presencial e remota.
+      </div>
+    ),
+  },
+];
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +87,6 @@ const ContactSection = () => {
       const result = await response.json();
 
       if (result.success) {
-        // Redirect to thank you page
         window.location.href = '/obrigado';
       } else {
         toast({
@@ -42,7 +96,6 @@ const ContactSection = () => {
         });
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
       toast({
         title: "Erro ao enviar mensagem",
         description: "Verifique sua conexão e tente novamente.",
@@ -69,11 +122,9 @@ const ContactSection = () => {
             <MessageCircle className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">Entre em contato</span>
           </div>
-          
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-6">
             Pronto para transformar seu negócio?
           </h2>
-          
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Entre em contato conosco hoje mesmo e descubra como o 
             <span className="font-semibold text-primary"> método R&O 360</span> pode 
@@ -85,10 +136,9 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="order-2 lg:order-1">
             <div className="bg-card rounded-3xl p-8 shadow-lg h-full">
-              <h3 className="font-display text-2xl font-bold text-primary mb-6 text-center">
+              <h3 className="font-display text-2xl font-bold text-primary mb-6 text-left">
                 Solicite sua análise gratuita
               </h3>
-              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
@@ -105,7 +155,6 @@ const ContactSection = () => {
                     className="w-full"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
                     E-mail *
@@ -121,7 +170,6 @@ const ContactSection = () => {
                     className="w-full"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-primary mb-2">
                     Telefone *
@@ -137,7 +185,6 @@ const ContactSection = () => {
                     className="w-full"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
                     Mensagem
@@ -152,12 +199,11 @@ const ContactSection = () => {
                     className="w-full resize-none"
                   />
                 </div>
-
                 <Button
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-accent hover:bg-accent/90 text-primary text-lime-400 font-semibold py-3 rounded-full transition-all duration-300 transform hover:scale-105"
                 >
                   {isSubmitting ? (
                     "Enviando..."
@@ -172,95 +218,24 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Information - Aligned Heights */}
+          {/* Contact Info List */}
           <div className="order-1 lg:order-2">
-            <div className="grid grid-rows-2 gap-6 h-full">
-              {/* Top Row: Contact Info + Business Hours */}
-              <div className="grid grid-cols-1 gap-6">
-                <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-8 text-white">
-                  <h3 className="font-display text-2xl font-bold mb-6 text-center">
-                    Informações de contato
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-1">E-mail</h4>
-                        <a 
-                          href="mailto:r.oconsultoriaestrategica@gmail.com"
-                          className="text-white/90 hover:text-white transition-colors"
-                        >
-                          r.oconsultoriaestrategica@gmail.com
-                        </a>
-                      </div>
+            <div className="bg-gradient-to-br from-primary to-accent rounded-3xl p-10 text-white flex flex-col gap-2 shadow-lg h-full">
+              <h3 className="font-display text-2xl font-bold mb-8 text-left">
+                Informações de contato
+              </h3>
+              <div className="flex flex-col gap-0 divide-y divide-white/15">
+                {contactInfoList.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-4 py-5 px-2">
+                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      {item.icon}
                     </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-1">Telefone</h4>
-                        <a 
-                          href="tel:+5547992062877"
-                          className="text-white/90 hover:text-white transition-colors"
-                        >
-                          +55 (47) 9 9206-2877
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <MessageCircle className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-1">WhatsApp</h4>
-                        <a 
-                          href="https://wa.me/5547992062877?text=Olá! Gostaria de saber mais sobre a consultoria R&O 360 e solicitar minha análise gratuita."
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white/90 hover:text-white transition-colors"
-                        >
-                          +55 (47) 9 9206-2877
-                        </a>
-                      </div>
+                    <div>
+                      <div className="font-semibold mb-1">{item.label}</div>
+                      <div className="text-white/90 text-sm">{item.value}</div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Bottom Row: Business Hours + Location */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-card rounded-3xl p-6 shadow-lg">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <Clock className="w-6 h-6 text-accent" />
-                    <h3 className="font-display text-lg font-bold text-primary">
-                      Horário de atendimento
-                    </h3>
-                  </div>
-                  <div className="space-y-2 text-muted-foreground text-center">
-                    <p><span className="font-medium">Segunda - Sexta:</span> 08:00 - 18:00</p>
-                    <p><span className="font-medium">Sábado:</span> 08:00 - 12:00</p>
-                    <p><span className="font-medium">Domingo:</span> Fechado</p>
-                  </div>
-                </div>
-
-                <div className="bg-card rounded-3xl p-6 shadow-lg">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <MapPin className="w-6 h-6 text-accent" />
-                    <h3 className="font-display text-lg font-bold text-primary">
-                      Atendimento
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground text-center">
-                    Atendemos todo o Brasil através de consultoria presencial e remota, 
-                    adaptando nossa metodologia às necessidades de cada cliente.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>

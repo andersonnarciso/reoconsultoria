@@ -33,29 +33,31 @@ const WhatsAppButton = () => {
     <div className="fixed bottom-6 left-6 z-50">
       {/* Proactive Tooltip */}
       {showTooltip && (
-        <div className="absolute bottom-20 left-0 bg-white rounded-2xl shadow-xl p-4 max-w-xs mb-4 animate-fade-in">
-          <button 
-            onClick={closeTooltip}
-            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
-          >
-            <X className="w-4 h-4" />
-          </button>
-          <div className="pr-6">
-            <p className="font-semibold text-primary mb-2">👋 Olá!</p>
-            <p className="text-sm text-muted-foreground mb-3">
-              Precisa de ajuda? Converse conosco no WhatsApp e tire suas dúvidas sobre o método R&O 360!
-            </p>
-            <button 
-              onClick={handleWhatsAppClick}
-              className="bg-accent text-white text-sm px-4 py-2 rounded-full hover:bg-accent/90 transition-colors"
-            >
-              Iniciar conversa
-            </button>
-          </div>
-          {/* Arrow */}
-          <div className="absolute bottom-[-8px] left-6 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
-        </div>
-      )}
+  <div className="absolute bottom-20 left-0 bg-white rounded-2xl shadow-xl p-4 mb-4 animate-fade-in"
+  style={{ minWidth: 340, maxWidth: 420, width: "100%" }}>
+    <button 
+      onClick={closeTooltip}
+      className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+    >
+      <X className="w-4 h-4" />
+    </button>
+    <div className="pr-6">
+      <p className="font-semibold text-primary mb-2">👋 Olá!</p>
+      <p className="text-sm text-muted-foreground mb-3">
+        Precisa de ajuda? Converse conosco no WhatsApp e tire suas dúvidas sobre o método R&O 360!
+      </p>
+      <button 
+        onClick={handleWhatsAppClick}
+        className="bg-accent text-white text-sm px-4 py-2 rounded-full hover:bg-accent/90 transition-colors"
+      >
+        Iniciar conversa
+      </button>
+    </div>
+    {/* Arrow */}
+    <div className="absolute bottom-[-8px] left-6 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
+  </div>
+)}
+
 
       {/* WhatsApp Button */}
       <button

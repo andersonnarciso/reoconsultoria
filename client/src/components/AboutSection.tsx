@@ -8,12 +8,12 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-accent/10 rounded-full px-4 py-2 mb-6">
-            <Users className="w-4 h-4 text-accent" />
+            <Users className="w-4 h-4 text-accent " />
             <span className="text-sm font-medium text-accent">Nossa Expertise</span>
           </div>
           
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-6">
-            Quem somos: sua parceria estratégica no setor de A&B
+            Sua parceria estratégica no setor de A&B
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -26,7 +26,7 @@ const AboutSection = () => {
         {/* Vision Statement */}
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 mb-16">
           <div className="max-w-4xl mx-auto text-center">
-            <Target className="w-12 h-12 text-accent mx-auto mb-6" />
+            <Target className="w-12 h-12 text-accent mx-auto mb-6 text-lime-500" />
             <p className="text-lg md:text-xl leading-relaxed text-primary font-medium">
               "Acreditamos que todo restaurante, bar ou café possui oportunidades de melhoria que, 
               quando identificadas e trabalhadas estrategicamente, transformam resultados. É com essa visão 
